@@ -1,34 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# argenpills
+Argenpills mobile esta hecho sobre React 17.x, y lee la informacion de las pastillas desde una API hosteada en AWS.
 
-## Getting Started
 
-First, run the development server:
+## FrontEnd
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Build
+Para correr el codigo, primero: 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+`npm install`
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Y despues
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+`npm build`
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Deploy
 
-## Learn More
+Hay basicamente dos scripts en el `package.json`:
 
-To learn more about Next.js, take a look at the following resources:
+1. `build:production`
+2. `upload:production`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Obviamente hay que tener configurada la cuenta de AWS para poder hacer deploy a estos buckets. 
+El nombre del profile es **ap**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Para actualizar el site, hay que correrlos en orden, primero `build:production` y luego `upload:production`
 
-## Deploy on Vercel
+Tambien le agregue Vercel (https://www.vercel.com) que hace un deploy automatico cuando `main` recibe un commit. 
+El sitio es https://argenpills.vercel.app, se puede usar para hacer preview de los cambios antes de subir.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### TO-DO
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Hacer que Vercel haga el deploy automaticamente a PROD seria muy bueno
+    - En vez de escuchar en `main`, podriamos escuchar en algun tag (`/release/v.x` donde x es la version)
+- Tener un entorno de pruebas (https://test.argenpills.vercel.com o algo asi)
+
+## Backend build
+Por ahora no hay manera de correr localmente el backend. Si alguien tiene ganas de armar el SAM, hagan un PR :D 
