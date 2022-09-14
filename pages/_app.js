@@ -1,0 +1,19 @@
+import { Fragment } from 'react'
+import '../styles/globals.css'
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { ReactQueryDevtools } from 'react-query-devtools';
+
+function MyApp({ Component, pageProps }) {
+  const queryClient = new QueryClient();
+
+  return (
+    <Fragment >
+      <QueryClientProvider client={queryClient} >
+        <Component {...pageProps} />
+        <ReactQueryDevtools initialIsOpen={false} />
+      </QueryClientProvider >
+    </Fragment >
+  );
+}
+
+export default MyApp
