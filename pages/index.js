@@ -11,7 +11,7 @@ import { useState } from 'react';
 function App({ resultsPills }) {
   const [searchText, setSearchText] = useState("");
 
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined') {
     ReactGA.initialize('UA-221362845-1');
     ReactGA.pageview(window.location.pathname + window.location.search);
   }

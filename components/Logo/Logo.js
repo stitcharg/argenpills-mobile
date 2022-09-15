@@ -1,8 +1,9 @@
 import React from "react";
+import Link from "next/link";
 
 export default function Logo() {
 	return (
-		<a href="/"><img src="logo.png" alt="Logo" className="img-fluid" /></a>
+		<Link href="/about"><img src="logo.png" alt="Logo" className="img-fluid" /></Link>
 	)
 }
 
