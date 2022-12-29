@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import PillList from '../UI/PillsList';
+import LastUpdate from '../UI/LastUpdate';
 
 const Main = ({ resultsPills }) => {
 	return (
@@ -22,7 +23,10 @@ const Main = ({ resultsPills }) => {
 			{
 				resultsPills.isSuccess &&
 				(
-					<PillList data={resultsPills.data.data} />
+					<>
+						<LastUpdate data={resultsPills.data.data}></LastUpdate>
+						<PillList data={resultsPills.data.data} />
+					</>
 				)
 			}
 		</Container>
