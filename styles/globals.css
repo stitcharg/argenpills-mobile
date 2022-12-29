@@ -29,3 +29,8 @@ div.multiple-batches {
   size: 20px;
   cursor: pointer;
 }
+
+.lastUpdate {
+  font-style: italic;
+  color: var(--bs-gray-600);
+}
