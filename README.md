@@ -16,3 +16,6 @@ Y despues
 ### Deploy
 
 Hagan un PR y cuando se mergee a `main`, hace deploy automaticamente a Vercel
+
+### Upgrades
+`ncu` para actualizar los paquetes
