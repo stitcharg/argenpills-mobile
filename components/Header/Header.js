@@ -3,9 +3,13 @@ import { Container, Row, Col } from 'react-bootstrap'
 import Logo from '../Logo/Logo'
 import Search from '../Search/Search'
 import PropTypes from 'prop-types';
+import pillStore from '../../context/PillStore';
 
 export default function Header({ handleSearch }) {
+    const fnSetActivePage = pillStore(s => s.setActivePage);
+
     const doSearch = (searchText) => {
+        fnSetActivePage(1);
         handleSearch(searchText);
     }
 

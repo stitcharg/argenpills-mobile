@@ -7,9 +7,12 @@ import Header from '../components/Header/Header';
 import { useQuery } from 'react-query';
 import fetchPills from '../components/API/fetchPills';
 import { useState } from 'react';
+import pillStore from '../context/PillStore';
 
-function App({ resultsPills }) {
+function App() {
   const [searchText, setSearchText] = useState("");
+  const fnSetTotalPages = pillStore(s => s.setTotalPages)
+  const pillsPerPage = pillStore(s => s.pillsPerPage)
 
   if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined') {
     ReactGA.initialize('UA-221362845-1');
@@ -24,9 +27,25 @@ function App({ resultsPills }) {
     }
   }
 
-  const queryResults = (useQuery(['pills', searchText], fetchPills,
-    { staleTime: 60000, refetchOnWindowFocus: false },
-    { initialData: resultsPills }));
+  const queryResults = (
+    useQuery(['pills', searchText],
+      fetchPills,
+      {
+        staleTime: 60000,
+        refetchOnWindowFocus: false,
+        keepPreviousData: true,
+        onSuccess: (response) => {
+          if (response.data) {
+            const totalRecords = response.data.length;
+
+            const calculatedPages = Math.ceil(totalRecords / pillsPerPage);
+
+            fnSetTotalPages(calculatedPages);
+          }
+        }
+      },
+    )
+  );
 
   return (
     <div className="wrapper">
@@ -35,16 +54,6 @@ function App({ resultsPills }) {
       <Footer />
     </div>
   );
-}
-
-export async function getStaticProps() {
-  const { data: resultsPills } = await fetchPills("");
-
-  return {
-    props: {
-      resultsPills
-    }
-  }
 }
 
 export default App;

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Logo() {
 	return (
-		<Link href="/about"><img src="logo.png" alt="Logo" className="img-fluid" /></Link>
+		<Link href="https://www.argenpills.org"><img src="logo.png" alt="Logo" className="img-fluid" /></Link>
 	)
 }
 

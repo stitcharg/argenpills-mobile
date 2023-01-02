@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Col, Row, Form } from "react-bootstrap";
 import PropTypes from 'prop-types';
+import pillStore from "../../context/PillStore";
 
 export default function Search({ handleSearch }) {
     const [internalSearch, setInternalSearch] = useState("");
