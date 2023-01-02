@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import PillList from '../UI/PillsList';
@@ -11,6 +11,9 @@ const Main = ({ resultsPills }) => {
 	const fnSetActivePage = pillStore(s => s.setActivePage);
 	const totalPages = pillStore(s => s.totalPages);
 
+	useEffect(() => {
+		if (window) window.scrollTo(0, 0);
+	}, [activePage])
 
 	return (
 		<Container className="p-3">
