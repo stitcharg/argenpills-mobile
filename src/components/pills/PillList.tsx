@@ -1,7 +1,6 @@
 import { SimpleGrid } from "@chakra-ui/react"
 import { Pill } from "./SinglePill"
-import tempData from '../../data.json';
-
+import tempData from '/public/data.json';
 
 export const PillList = () => {
 	return (

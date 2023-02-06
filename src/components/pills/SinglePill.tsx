@@ -1,5 +1,5 @@
 import { Text, Button, Card, CardBody, CardFooter, CardHeader, Heading, Image, Flex, Icon, HStack, Spacer, Divider, Tooltip, Box } from "@chakra-ui/react"
-import { iPill, PIllLoadEnum, PIllSubstanceEnum, PillWarningEnum } from "../../interfaces/iPill"
+import { iPill, PIllLoadEnum, PIllSubstanceEnum, PillWarningEnum } from "../interfaces/iPill"
 import { BadgeDangerous, BadgeWarning, MultiplesBagdes } from "./Badges"
 import { CalendarIcon, ExternalLinkIcon, ArrowUpIcon, ArrowDownIcon } from "@chakra-ui/icons";
 
