@@ -238,7 +238,6 @@
 		"ap_url": "https://argenpills.org/showthread.php?tid=6585",
 		"image": "https://images.argenpills.info/pills/1027537.jpg",
 		"search_value": "laugh now / joker verde / rosa",
-		"load": null,
 		"lab_image": "https://images.argenpills.info/tests/4171889.jpg",
 		"id": "782dce5a-dc8a-4c8c-a889-5ee9ad30777d",
 		"posted_date": "2022-10-28",
@@ -293,12 +292,10 @@
 		"ap_url": "https://argenpills.org/showthread.php?tid=6514",
 		"image": "https://images.argenpills.info/pills/5826762.jpg",
 		"search_value": "pharao/faraón bicolor verde/rojo",
-		"load": null,
 		"id": "5c4e6e02-0a5b-4652-a14f-480ca64ff1de",
 		"posted_date": "2022-09-13",
 		"name": "Pharao/Faraón bicolor",
-		"color": "Verde/Rojo",
-		"substance": null
+		"color": "Verde/Rojo"
 	},
 	{
 		"published": "x",
@@ -316,7 +313,6 @@
 		"ap_url": "https://argenpills.org/showthread.php?tid=6513",
 		"image": "https://images.argenpills.info/pills/443929.jpg",
 		"search_value": " porsche fucia / rosa / magenta",
-		"load": null,
 		"id": "f6bd1b03-3982-4506-a191-6ec5c0597bd9",
 		"posted_date": "2022-09-10",
 		"name": " Porsche",
@@ -459,13 +455,10 @@
 		"ap_url": "https://argenpills.org/showthread.php?tid=6410",
 		"image": "https://images.argenpills.info/pills/2595967.jpg",
 		"search_value": "musicon violeta / rosas",
-		"lab_url": null,
-		"notes": null,
 		"id": "b249ccee-530d-453f-a527-5aab91e68738",
 		"posted_date": "2022-07-07",
 		"name": "Musicon",
-		"color": "Violeta / Rosas",
-		"substance": null
+		"color": "Violeta / Rosas"
 	},
 	{
 		"published": "x",
@@ -475,8 +468,7 @@
 		"id": "c538a02f-5229-4fbb-a4e3-a71ead065264",
 		"posted_date": "2022-07-05",
 		"name": "Donkey Kong",
-		"color": "Verde",
-		"substance": null
+		"color": "Verde"
 	},
 	{
 		"published": "x",
@@ -494,8 +486,6 @@
 		"published": "x",
 		"ap_url": "https://argenpills.org/showthread.php?tid=6327",
 		"search_value": "cnn bicolor (rosa y blanco)",
-		"lab_url": null,
-		"load": null,
 		"posted_date": "2022-07-01",
 		"name": "CNN",
 		"substance": 1,
@@ -504,7 +494,6 @@
 		"multiple_batchs": true,
 		"lab_image": "https://images.argenpills.info/tests/9500041.jpg",
 		"id": "ca339d96-6726-496f-ad14-1497906890cc",
-		"warning": null,
 		"color": "Bicolor (Rosa y Blanco)"
 	},
 	{
@@ -515,15 +504,13 @@
 		"id": "545809ab-b2ce-49cb-ad60-2fe49e835901",
 		"posted_date": "2022-06-30",
 		"name": "Bob Esponja",
-		"color": "Naranja",
-		"substance": null
+		"color": "Naranja"
 	},
 	{
 		"published": "x",
 		"ap_url": "https://argenpills.org/showthread.php?tid=6190",
 		"image": "https://images.argenpills.info/pills/5213055.jpg",
 		"search_value": "burguer king verdes",
-		"load": null,
 		"lab_image": "https://images.argenpills.info/tests/5675772.jpg",
 		"id": "afa982cf-3cc6-4673-9104-c5d03ace9667",
 		"posted_date": "2022-06-24",
@@ -563,8 +550,7 @@
 		"id": "2423f353-1004-4e7f-8837-88239118b6b9",
 		"posted_date": "2022-06-15",
 		"name": "Granadas",
-		"color": "Rosa",
-		"substance": null
+		"color": "Rosa"
 	},
 	{
 		"published": "x",
@@ -584,8 +570,7 @@
 		"id": "b7045d7f-df1f-429a-b08d-57969351411b",
 		"posted_date": "2022-06-05",
 		"name": "Space",
-		"color": "Rosa",
-		"substance": null
+		"color": "Rosa"
 	},
 	{
 		"published": "x",
@@ -606,7 +591,6 @@
 		"ap_url": "https://argenpills.org/showthread.php?tid=6314",
 		"image": "https://images.argenpills.info/pills/5123478.jpg",
 		"search_value": "gold bar crema/beige/amarilla",
-		"load": null,
 		"id": "08700b45-b9c9-4ee4-9256-393e8b675f68",
 		"posted_date": "2022-05-26",
 		"name": "GOLD Bar",
@@ -625,7 +609,6 @@
 		"multiple_batchs": true,
 		"lab_image": "https://images.argenpills.info/tests/3724975.jpg",
 		"id": "c584182b-df1e-4075-ac10-927e944e118e",
-		"warning": null,
 		"color": "Roja"
 	},
 	{
@@ -679,7 +662,6 @@
 		"ap_url": "https://argenpills.org/showthread.php?tid=6067",
 		"image": "https://images.argenpills.info/pills/4103894.jpg",
 		"search_value": "james harden plateadas",
-		"load": null,
 		"lab_image": "https://images.argenpills.info/tests/9266424.jpg",
 		"id": "fc909949-7c81-4d9e-9791-a58b3331e7f8",
 		"posted_date": "2022-02-01",
