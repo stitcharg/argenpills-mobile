@@ -9,7 +9,7 @@ interface iPillProps {
 
 export const Pill = ({ pill }: iPillProps) => {
 
-	const calculateColor = (multiple: boolean) => {
+	const calculateColor = (multiple?: boolean) => {
 		return (multiple) ? "yellow.100" : "gray.200";
 	}
 
@@ -59,7 +59,7 @@ const PillBody = ({ pill }: iPillProps) => {
 			</Flex>
 
 			<Flex justifyContent="center">
-				<Image src={pill.image} w="200" pb={2}></Image>
+				<Image src={pill.image} w="200" pb={2} alt={pill.name + ' ' + pill.color}></Image>
 			</Flex>
 
 			{pill.multiple_batchs && <MultiplesBagdes></MultiplesBagdes>}
@@ -81,7 +81,7 @@ const PillBody = ({ pill }: iPillProps) => {
 }
 
 interface iSubstanceProps {
-	substance: PIllSubstanceEnum
+	substance?: PIllSubstanceEnum
 }
 
 const ShowSubstance = ({ substance }: iSubstanceProps) => {
@@ -107,7 +107,7 @@ const ShowSubstance = ({ substance }: iSubstanceProps) => {
 
 
 interface iShowLoadProps {
-	load: PIllLoadEnum
+	load?: PIllLoadEnum
 }
 
 const ShowLoad = ({ load }: iShowLoadProps) => {
