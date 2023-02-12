@@ -2,7 +2,6 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Main from '../components/Main/Main';
 import Footer from '../components/UI/Footer';
-import ReactGA from 'react-ga';
 import Header from '../components/Header/Header';
 import { useQuery } from 'react-query';
 import fetchPills from '../components/API/fetchPills';
@@ -13,11 +12,6 @@ function App() {
   const [searchText, setSearchText] = useState("");
   const fnSetTotalPages = pillStore(s => s.setTotalPages)
   const pillsPerPage = pillStore(s => s.pillsPerPage)
-
-  if (process.env.NODE_ENV === 'production' && typeof window !== 'undefined') {
-    ReactGA.initialize('UA-221362845-1');
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }
 
   const doSearch = (search) => {
     if (search != "") {
