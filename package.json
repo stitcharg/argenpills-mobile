@@ -13,10 +13,10 @@
     "bootstrap": "^5.2.3",
     "dayjs": "^1.11.7",
     "next": "13.1.1",
+    "nextjs-google-analytics": "^2.3.0",
     "react": "18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "18.2.0",
-    "react-ga": "^3.3.1",
     "react-icons": "^4.7.1",
     "react-query": "^3.39.2",
     "zustand": "^4.2.0"
