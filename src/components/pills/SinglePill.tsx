@@ -2,6 +2,8 @@ import { Text, Button, Card, CardBody, CardFooter, CardHeader, Heading, Image, F
 import { iPill, PIllLoadEnum, PIllSubstanceEnum, PillWarningEnum } from "../interfaces/iPill"
 import { BadgeDangerous, BadgeWarning, MultiplesBagdes } from "./Badges"
 import { CalendarIcon, ExternalLinkIcon, ArrowUpIcon, ArrowDownIcon } from "@chakra-ui/icons";
+import { LinkTest } from './LinkTest'
+import { LinkAP } from "./LinkAP";
 
 interface iPillProps {
 	pill: iPill
@@ -28,13 +30,9 @@ export const Pill = ({ pill }: iPillProps) => {
 
 			<CardFooter>
 				<HStack w="100%">
-					<Button colorScheme="blue">
-						Argenpills
-						<Icon ml={2} as={ExternalLinkIcon}></Icon></Button>
+					<LinkAP ap_url={pill.ap_url}></LinkAP>
 					<Spacer></Spacer>
-					<Button colorScheme="green">
-						Ver Test
-						<Icon ml={2} as={ExternalLinkIcon}></Icon></Button>
+					<LinkTest lab_image={pill.lab_image}></LinkTest>
 				</HStack>
 			</CardFooter>
 		</Card>
