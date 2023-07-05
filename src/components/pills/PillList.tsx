@@ -1,13 +1,31 @@
 import { SimpleGrid } from "@chakra-ui/react"
 import { Pill } from "./SinglePill"
 import { iPill } from "../interfaces/iPill";
-import tempData from '../../../public/data.json';
+import pillStore from "@/context/pill.store";
 
-export const PillList = () => {
-	const data: iPill[] = tempData;
+interface iPillListProps {
+	data?: iPill[]
+}
+
+export const PillList = ({data}:iPillListProps) => {
+	const pillsPerPage = pillStore(s => s.pillsPerPage);
+	const activePage = pillStore(s => s.activePage);
+
+	if (data == null) return <></>;
+
+	const pageResults = (pills:iPill[]) => {
+		if (pills.length < pillsPerPage) return pills;
+
+		const skip = (pillsPerPage * activePage) - pillsPerPage;
+
+		return pills.slice(skip, pillsPerPage + skip);
+	}
+
+	const pagedResults = pageResults(data);
+
 	return (
 		<SimpleGrid templateColumns='repeat(auto-fill, minmax(300px, 1fr))' spacing={10} w="100%">
-			{data.map(x => {
+			{pagedResults.map(x => {
 				return <Pill pill={x} key={x.id}></Pill>
 			})}
 		</SimpleGrid>

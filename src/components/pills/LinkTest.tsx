@@ -5,8 +5,8 @@ interface iLinkTextProps {
 	lab_image?: string
 }
 
-export const LinkTest = (props: iLinkTextProps) => {
-	if (props.lab_image == null) return <></>;
+export const LinkTest = ({lab_image}: iLinkTextProps) => {
+	if (lab_image == null) return <></>;
 
 	return (<Button colorScheme="green">
 			Ver Test

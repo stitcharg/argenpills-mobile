@@ -5,8 +5,8 @@ interface iLinkTextProps {
 	ap_url?: string
 }
 
-export const LinkAP = (props: iLinkTextProps) => {
-	if (props.ap_url == null) return <></>;
+export const LinkAP = ({ap_url}: iLinkTextProps) => {
+	if (ap_url == null) return <></>;
 
 	return (<Button colorScheme="blue">
 			Argenpills
