@@ -1,13 +1,19 @@
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import '../styles/globals.css'
 import '../styles/pagination.css'
 import { QueryClientProvider, QueryClient } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools'
 import Head from "next/head";
-import { GoogleAnalytics } from "nextjs-google-analytics";
+import { clarity } from 'react-microsoft-clarity';
 
 function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient();
+
+  useEffect(() => {
+    clarity.init(
+      process.env.NEXT_PUBLIC_CLARITY_ID
+    );
+  }, []);
 
   return (
     <Fragment >
@@ -15,7 +21,6 @@ function MyApp({ Component, pageProps }) {
         <title>Argenpills Mobile</title>
       </Head>
       <QueryClientProvider client={queryClient} >
-        <GoogleAnalytics trackPageViews />
         <Component {...pageProps} />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider >
