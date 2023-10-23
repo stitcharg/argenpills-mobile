@@ -10,9 +10,10 @@ function MyApp({ Component, pageProps }) {
   const queryClient = new QueryClient();
 
   useEffect(() => {
-    clarity.init(
-      process.env.NEXT_PUBLIC_CLARITY_ID
-    );
+    if (process.env.NODE_ENV != "development")
+      clarity.init(
+        process.env.NEXT_PUBLIC_CLARITY_ID
+      );
   }, []);
 
   return (
