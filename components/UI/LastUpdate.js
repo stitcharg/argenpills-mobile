@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
 import { Container, Row } from 'react-bootstrap';
 import dayjs from 'dayjs';
+import pillStore from '../../context/PillStore';
 
-const LastUpdate = (resultsPills) => {
-	const pillData = resultsPills.data;
+const LastUpdate = () => {
 
-	if (pillData && pillData.length > 0) {
-		const lastAddedItem = pillData[0];
-		const lastUpdateDate = lastAddedItem.posted_date;
+	const lastUpdate = pillStore(s => s.lastUpdate);
+	const filter = pillStore(s => s.filter);
 
-		const parsedDate = dayjs(lastUpdateDate, 'es', true).format('DD MMMM, YYYY');
+	if (lastUpdate && filter == '') {
+		const parsedDate = dayjs(lastUpdate, 'es', true).format('DD MMMM, YYYY');
 
 		return (
 			<Container className="p-3">

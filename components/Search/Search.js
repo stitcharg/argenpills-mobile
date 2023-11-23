@@ -31,7 +31,7 @@ export default function Search({ handleSearch }) {
                     />
                 </Col>
                 <Col>
-                    <Button className="btn btn-primary btn-sm" onClick={handleOnClick}>Buscar</Button>
+                    <Button className="btn btn-primary btn-sm" onClick={handleOnClick} disabled={internalSearch.length > 0 && internalSearch.length <= 3}>Buscar</Button>
                 </Col>
             </Row>
         </Form>

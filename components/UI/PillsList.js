@@ -6,25 +6,13 @@ import NoResults from "./NoResults";
 import pillStore from "../../context/PillStore";
 
 export default function PillList(props) {
-
-	const pageResults = (pills) => {
-		const pillsPerPage = pillStore(s => s.pillsPerPage);
-		const activePage = pillStore(s => s.activePage);
-
-		if (pills.length < pillsPerPage) return pills;
-
-		const skip = (pillsPerPage * activePage) - pillsPerPage;
-
-		return pills.slice(skip, pillsPerPage + skip);
-	}
-
 	if (props.data && props.data.length > 0) {
-		//paginar del lado del cliente me arruga la ropa, pero aca estamos
-		const pagedResults = pageResults(props.data);
+
+		const results = props.data;
 
 		return (
 			<Row xs={{ cols: 1 }} md={{ cols: 2 }} xl={{ cols: 3 }} className="g-4">
-				{pagedResults.map(pill => <Col xs key={pill.id}><Pill
+				{results.map(pill => <Col xs key={pill.id} className="d-flex justify-content-center"><Pill
 					key={pill.id}
 					name={pill.name}
 					color={pill.color}

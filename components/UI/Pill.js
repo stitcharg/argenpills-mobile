@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, Card, ListGroup } from "react-bootstrap";
+import { Button, Card, ListGroup, Row, Col } from "react-bootstrap";
 
 import PillSubstance from "./Pill/Substance";
 import PillLoad from "./Pill/Load";
@@ -21,7 +21,7 @@ export default function Pill(data) {
 
 	//console.log("Pill Data", data, data.multiple_batchs);
 
-	let cssClassName = "pill";
+	let cssClassName = "flex-grow-1 pill";
 	const multipleBatches = data.multiple_batchs;
 	//If we have multiple batches, use another class as well
 	if (multipleBatches)
@@ -52,9 +52,14 @@ export default function Pill(data) {
 			</Card.Body>
 
 			<Card.Footer>
-				<Button variant="primary" size="sm" href={data.ap}>Visitar ArgenPills</Button>
-
-				<TestImageModal lab_image_url={data.lab_image} />
+				<Row>
+					<Col xs={12} md={6}>
+						<Button variant="primary" size="sm" href={data.ap} className="w-100 mb-2 mb-md-0">Visitar ArgenPills</Button>
+					</Col>
+					<Col xs={12} md={6}>
+						<TestImageModal lab_image_url={data.lab_image} />
+					</Col>
+				</Row>
 			</Card.Footer>
 		</Card>
 	);
