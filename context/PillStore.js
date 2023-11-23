@@ -3,20 +3,37 @@ import { create } from "zustand";
 const pillStore = create(
 	(set, get) => (
 		{
-			pillsPerPage: 21,
+			pillsPerPage: 9,
 			activePage: 1,
 			totalPages: 1,
+			lastEvaluatedKey: '',
+			lastUpdate: '',
+			filter: '',
 			setActivePage: (n) => (
 				set(
-					state => ({ activePage: n })
+					() => ({ activePage: n })
 				)
 			),
 			setTotalPages: (n) => (
 				set(
-					state => ({ totalPages: n })
+					() => ({ totalPages: n })
+				)
+			),
+			setLastEvaluatedKey: (n) => (
+				set(
+					() => ({ lastEvaluatedKey: n })
+				)
+			),
+			setLastUpdate: (d) => (
+				set(
+					() => ({ lastUpdate: d })
+				)
+			),
+			setFilter: (s) => (
+				set(
+					() => ({ filter: s })
 				)
 			)
-
 		}
 	)
 );

@@ -23,20 +23,20 @@ const Main = ({ resultsPills }) => {
 				)
 			}
 			{
-				resultsPills.isLoading && (
+				(resultsPills.isLoading || resultsPills.isFetching) && (
 					<div>Cargando...</div>
 				)
 			}
 			{
-				resultsPills.isSuccess &&
+				resultsPills.isSuccess && resultsPills.isFetched &&
 				(
 					<>
-						<LastUpdate data={resultsPills.data.data}></LastUpdate>
-						<PillList data={resultsPills.data.data} />
+						<LastUpdate />
+						<PillList data={resultsPills.data.data.data} />
 						<Pagination
 							activePage={activePage}
 							setActivePage={fnSetActivePage}
-							pages={totalPages} // Total number of pages
+							pages={totalPages}
 						/>
 					</>
 				)

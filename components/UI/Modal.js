@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Modal, Image } from 'react-bootstrap';
+import { Col, Button, Modal, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 export default function TestImageModal(props) {
@@ -12,7 +12,7 @@ export default function TestImageModal(props) {
 
 	return (
 		<>
-			<Button variant="success" onClick={handleShow} size="sm" className='btnViewTest'>
+			<Button variant="success" size="sm" className="w-100 mb-2 mb-md-0 btnViewTest" onClick={handleShow}>
 				Ver foto del test
 			</Button>
 

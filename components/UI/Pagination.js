@@ -19,6 +19,8 @@ const Pagination = ({ activePage, pages, setActivePage }) => {
 		return elements; // [<div>1</div>, <div>2</div>....]
 	};
 
+	if (pages <= 1) return <></>;
+
 	return (
 		<div className="pagination">
 			<div
