@@ -90,4 +90,21 @@ function App() {
   );
 }
 
+export async function getServerSideProps(context) {
+  const isUpgradingEnabled = process.env.NEXT_PUBLIC_ENABLE_UPGRADING_PAGE === 'true';
+
+  if (isUpgradingEnabled) {
+    return {
+      redirect: {
+        destination: '/upgrade',
+        permanent: false, // set to true if this is a permanent redirect
+      },
+    };
+  }
+
+  // Return normal props for home page
+  return { props: {} };
+}
+
+
 export default App;
