@@ -41,7 +41,7 @@ function App() {
           const items = response.data.data;
 
           if (items.length > 0) {
-            const lastEvaluate = response.data.LastEvaluatedKey?.id.S;
+            const lastEvaluate = response.data.LastEvaluatedKey;
 
             const calculatedPages = getTotalPages(response.headers);
 
