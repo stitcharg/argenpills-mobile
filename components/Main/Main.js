@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import { Container, Stack, Spinner } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import PillList from '../UI/PillsList';
 import LastUpdate from '../UI/LastUpdate';
@@ -24,7 +24,10 @@ const Main = ({ resultsPills }) => {
 			}
 			{
 				(resultsPills.isLoading || resultsPills.isFetching) && (
-					<div>Cargando...</div>
+					<Stack direction="horizontal" gap={3}>
+						<div>Cargando...</div>
+						<div><Spinner animation="border" variant="primary" size="sm" /></div>
+					</Stack>
 				)
 			}
 			{

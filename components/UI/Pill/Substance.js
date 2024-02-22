@@ -10,7 +10,7 @@ export default function PillSubstance(props) {
 		},
 		{
 			id: 1,
-			desc: 'MDMA',
+			desc: 'MDMX',
 		},
 		{
 			id: 2,

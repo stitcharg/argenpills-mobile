@@ -16,11 +16,11 @@ export default function Header({ handleSearch }) {
     return (
         <Container>
             <Row>
-                <Col className="col-xs-12 col-md-6">
+                <Col className="col-xs-12 col-md-6" sm={4}>
                     <Logo />
                 </Col>
 
-                <Col className="col-xs-6 col-md-6">
+                <Col className="col-xs-12 col-md-6 mt-3">
                     <Search handleSearch={doSearch} />
                 </Col>
             </Row>
