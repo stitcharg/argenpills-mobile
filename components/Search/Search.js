@@ -20,7 +20,7 @@ export default function Search({ handleSearch }) {
     return (
         <Form onSubmit={e => handleSubmit(e)}>
             <Row>
-                <Col>
+                <Col className="col-8">
                     <Form.Control
                         size="sm"
                         type="text"
@@ -30,7 +30,7 @@ export default function Search({ handleSearch }) {
                         className="form-control input-sm"
                     />
                 </Col>
-                <Col>
+                <Col className="col-2">
                     <Button className="btn btn-primary btn-sm" onClick={handleOnClick} disabled={internalSearch.length > 0 && internalSearch.length <= 3}>Buscar</Button>
                 </Col>
             </Row>

@@ -29,7 +29,7 @@ export default function Pill(data) {
 
 	return (
 		<Card className={cssClassName}>
-			<PillImage imagePath={data.image} />
+			<PillImage imagePath={data.image} apLink={data.ap} />
 			<Card.Body>
 				<Card.Title>{data.name} {data.color}
 					<PillBadge warning={data.warning}></PillBadge>
@@ -54,7 +54,7 @@ export default function Pill(data) {
 			<Card.Footer>
 				<Row>
 					<Col xs={12} md={6}>
-						<Button variant="primary" size="sm" href={data.ap} className="w-100 mb-2 mb-md-0">Visitar ArgenPills</Button>
+						<Button variant="primary" size="sm" href={data.ap} className="w-100 mb-2 mb-md-0">Leer reviews</Button>
 					</Col>
 					<Col xs={12} md={6}>
 						<TestImageModal lab_image_url={data.lab_image} />

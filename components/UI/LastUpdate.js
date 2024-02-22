@@ -14,7 +14,7 @@ const LastUpdate = () => {
 		return (
 			<Container className="p-3">
 				<Row className="justify-content-end small lastUpdate bs-blue">
-					Ultima actualizacion: {parsedDate}
+					&#218;ltima actualizaci&oacute;n: {parsedDate}
 				</Row>
 			</Container>
 		)
