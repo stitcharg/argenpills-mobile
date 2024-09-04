@@ -4,10 +4,10 @@ import { Button, Card, ListGroup, Row, Col } from "react-bootstrap";
 
 import PillSubstance from "./Pill/Substance";
 import PillLoad from "./Pill/Load";
-import PillBadge from "./Pill/PillBadge";
 import PillComment from "./Pill/PillComment";
 import PillImage from "./Pill/PillImage";
 import MultipleBatches from "./Pill/MultipleBatches";
+import PillRibbon from "./Pill/PillRibbon";
 
 import dayjs from 'dayjs';
 
@@ -32,7 +32,7 @@ export default function Pill(data) {
 			<PillImage imagePath={data.image} apLink={data.ap} />
 			<Card.Body>
 				<Card.Title>{data.name} {data.color}
-					<PillBadge warning={data.warning}></PillBadge>
+					<PillRibbon type={data.warning} />
 					<MultipleBatches hasMultiple={multipleBatches}></MultipleBatches>
 				</Card.Title>
 				<Card.Subtitle className="date">{parsedDate}</Card.Subtitle>
