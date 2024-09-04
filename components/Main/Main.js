@@ -5,6 +5,8 @@ import PillList from '../UI/PillsList';
 import LastUpdate from '../UI/LastUpdate';
 import Pagination from '../UI/Pagination';
 import pillStore from '../../context/PillStore';
+import useMediaQuery from '../../hooks/useMediaQuery';
+
 
 const Main = ({ resultsPills }) => {
 	const activePage = pillStore(s => s.activePage);
@@ -14,6 +16,10 @@ const Main = ({ resultsPills }) => {
 	useEffect(() => {
 		if (window) window.scrollTo(0, 0);
 	}, [activePage])
+
+	const isMobile = useMediaQuery('(max-width: 768px)');
+
+	const pagesToShow = isMobile ? 2 : 10;
 
 	return (
 		<Container className="p-3">
@@ -40,6 +46,7 @@ const Main = ({ resultsPills }) => {
 							activePage={activePage}
 							setActivePage={fnSetActivePage}
 							pages={totalPages}
+							visiblePages={pagesToShow}
 						/>
 					</>
 				)
