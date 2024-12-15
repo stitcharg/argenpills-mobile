@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Col, Button, Modal, Image } from 'react-bootstrap';
+import { Button, Modal, Image } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 export default function TestImageModal(props) {
@@ -21,7 +21,7 @@ export default function TestImageModal(props) {
 					<Modal.Title>Test</Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
-					<Image src={props.lab_image_url} className="img-fluid"></Image>
+					<Image src={props.lab_image_url} className="img-fluid" alt="Test"></Image>
 				</Modal.Body>
 				<Modal.Footer>
 					<Button variant="primary" onClick={handleClose}>
