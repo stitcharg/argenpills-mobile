@@ -6,7 +6,7 @@ import NoResults from "./NoResults";
 import pillStore from "../../context/PillStore";
 
 export default function PillList(props) {
-	const keyword = pillStore(s => s.filter);
+	//const keyword = pillStore(s => s.filter);
 
 	if (props.data && props.data.length > 0) {
 

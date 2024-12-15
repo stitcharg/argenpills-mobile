@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Button, Card, ListGroup, Row, Col } from "react-bootstrap";
+import useMediaQuery from '../../hooks/useMediaQuery';
 
 import PillSubstance from "./Pill/Substance";
 import PillLoad from "./Pill/Load";
@@ -18,6 +19,7 @@ dayjs.locale('es');
 
 export default function Pill(data) {
 	const parsedDate = dayjs(data.date, 'es', true).format('MMMM-YYYY');
+	const isMobile = useMediaQuery('(max-width: 768px)');
 
 	//console.log("Pill Data", data, data.multiple_batchs);
 
@@ -32,7 +34,7 @@ export default function Pill(data) {
 			<PillImage imagePath={data.image} apLink={data.ap} />
 			<Card.Body>
 				<Card.Title>{data.name} {data.color}
-					<PillRibbon type={data.warning} />
+					<PillRibbon type={data.warning} isMobile={isMobile} />
 					<MultipleBatches hasMultiple={multipleBatches}></MultipleBatches>
 				</Card.Title>
 				<Card.Subtitle className="date">{parsedDate}</Card.Subtitle>

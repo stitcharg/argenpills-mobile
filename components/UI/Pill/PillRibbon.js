@@ -4,7 +4,6 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Overlay from 'react-bootstrap/Overlay';
 import Tooltip from 'react-bootstrap/Tooltip';
 import { FaInfoCircle } from "react-icons/fa";
-import useMediaQuery from '../../../hooks/useMediaQuery';
 import Popover from 'react-bootstrap/Popover';
 
 const DANGER = 2;
@@ -117,10 +116,8 @@ const PillRibbonDesktop = ({ type }) => {
 	);
 };
 
-const PillRibbon = ({ type }) => {
+const PillRibbon = ({ type, isMobile }) => {
 	if (!type) return null;
-
-	const isMobile = useMediaQuery('(max-width: 768px)');
 
 	return isMobile
 		? <PillRibbonMobile type={type} />
