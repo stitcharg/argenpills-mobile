@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/speed-insights": "^1.2.0",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "dayjs": "^1.11.13",
