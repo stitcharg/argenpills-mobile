@@ -7,6 +7,7 @@ import { useQuery } from 'react-query';
 import fetchPills from '../components/API/fetchPills';
 import { useState } from 'react';
 import pillStore from '../context/PillStore';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 function App() {
 	const [searchText, setSearchText] = useState("");
@@ -76,6 +77,7 @@ function App() {
 			<Header handleSearch={doSearch} />
 			<Main resultsPills={queryResults} />
 			<Footer />
+			<SpeedInsights />
 		</div>
 	);
 }
