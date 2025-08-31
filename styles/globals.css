@@ -1,14 +1,25 @@
+/* Critical CSS - Load first */
 .App {
   text-align: center;
 }
 
 .wrapper {
   padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+/* Pill card optimizations */
 .pill {
   width: 18rem;
   margin-bottom: 15px;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  will-change: transform;
+}
+
+.pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 div.multiple-batches {
@@ -29,4 +40,55 @@ div.multiple-batches {
 .lastUpdate {
   font-style: italic;
   color: var(--bs-gray-600);
+}
+
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+}
+
+/* Optimize images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Responsive optimizations */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 10px;
+  }
+
+  .pill {
+    width: 100%;
+    max-width: 18rem;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .pill {
+    transition: none;
+  }
+
+  .loading-skeleton {
+    animation: none;
+  }
 }

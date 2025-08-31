@@ -1,43 +1,70 @@
-import React from "react";
-import { useState } from "react";
-import { Button } from "react-bootstrap";
-import { Col, Row, Form } from "react-bootstrap";
+import React, { useState, useCallback, useEffect } from 'react';
+import { Form, InputGroup, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
-export default function Search({ handleSearch }) {
-	const [internalSearch, setInternalSearch] = useState("");
+const Search = ({ handleSearch, placeholder = "Buscar pastillas..." }) => {
+	const [searchTerm, setSearchTerm] = useState('');
+	const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('');
 
-	const handleOnClick = () => {
-		handleSearch(internalSearch);
-	}
+	// Debounce search term
+	useEffect(() => {
+		const timer = setTimeout(() => {
+			setDebouncedSearchTerm(searchTerm);
+		}, 300); // 300ms delay
 
-	const handleSubmit = (e) => {
+		return () => clearTimeout(timer);
+	}, [searchTerm]);
+
+	// Trigger search when debounced term changes
+	useEffect(() => {
+		handleSearch(debouncedSearchTerm);
+	}, [debouncedSearchTerm, handleSearch]);
+
+	const handleSubmit = useCallback((e) => {
 		e.preventDefault();
-		handleSearch(internalSearch);
-	}
+		handleSearch(searchTerm);
+	}, [searchTerm, handleSearch]);
+
+	const handleClear = useCallback(() => {
+		setSearchTerm('');
+		setDebouncedSearchTerm('');
+		handleSearch('');
+	}, [handleSearch]);
 
 	return (
-		<Form onSubmit={e => handleSubmit(e)}>
-			<Row>
-				<Col className="col-8">
-					<Form.Control
-						size="sm"
-						type="text"
-						placeholder="Ingrese texto a buscar"
-						onChange={event => setInternalSearch(event.target.value)}
-						autoComplete="false"
-						className="form-control input-sm"
-					/>
-				</Col>
-				<Col className="col-2">
-					<Button className="btn btn-primary btn-sm" onClick={handleOnClick} disabled={internalSearch.length > 0 && internalSearch.length <= 3}>Buscar</Button>
-				</Col>
-			</Row>
+		<Form onSubmit={handleSubmit}>
+			<InputGroup>
+				<Form.Control
+					type="text"
+					placeholder={placeholder}
+					value={searchTerm}
+					onChange={(e) => setSearchTerm(e.target.value)}
+					aria-label="Search pills"
+				/>
+				<Button
+					variant="outline-secondary"
+					type="submit"
+					aria-label="Search"
+				>
+					🔍
+				</Button>
+				{searchTerm && (
+					<Button
+						variant="outline-secondary"
+						onClick={handleClear}
+						aria-label="Clear search"
+					>
+						×
+					</Button>
+				)}
+			</InputGroup>
 		</Form>
 	);
-}
+};
 
 Search.propTypes = {
-	searchText: PropTypes.string,
-	handleSearch: PropTypes.func
-}
+	handleSearch: PropTypes.func.isRequired,
+	placeholder: PropTypes.string
+};
+
+export default Search;

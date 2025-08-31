@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useMemo } from "react";
 
 import { Button, Card, ListGroup, Row, Col } from "react-bootstrap";
 import useMediaQuery from '../../hooks/useMediaQuery';
@@ -17,8 +17,11 @@ import TestImageModal from './Modal';
 require('dayjs/locale/es');
 dayjs.locale('es');
 
-export default function Pill(data) {
-	const parsedDate = dayjs(data.date, 'es', true).format('MMMM-YYYY');
+const Pill = memo(function Pill(data) {
+	const parsedDate = useMemo(() =>
+		dayjs(data.date, 'es', true).format('MMMM-YYYY'),
+		[data.date]
+	);
 	const isMobile = useMediaQuery('(max-width: 768px)');
 
 	//console.log("Pill Data", data, data.multiple_batchs);
@@ -65,4 +68,8 @@ export default function Pill(data) {
 			</Card.Footer>
 		</Card>
 	);
-}
+});
+
+Pill.displayName = 'Pill';
+
+export default Pill;

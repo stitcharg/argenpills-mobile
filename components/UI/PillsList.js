@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import Pill from "./Pill";
 import PropTypes from 'prop-types';
 import { Row, Col, Stack } from "react-bootstrap";
 import NoResults from "./NoResults";
 import pillStore from "../../context/PillStore";
 
-export default function PillList(props) {
+const PillList = memo(function PillList(props) {
 	//const keyword = pillStore(s => s.filter);
 
 	if (props.data && props.data.length > 0) {
@@ -38,16 +38,22 @@ export default function PillList(props) {
 	} else {
 		return (<NoResults />);
 	}
-}
+});
 
-const ShowKeywords = () => {
+PillList.displayName = 'PillList';
+
+const ShowKeywords = memo(function ShowKeywords() {
 	const keyword = pillStore(s => s.filter);
 
 	if (keyword == null || keyword == "") return null;
 
 	return (<div>Resultados de b&uacute;squeda de <strong>{keyword}</strong>:</div>);
-}
+});
+
+ShowKeywords.displayName = 'ShowKeywords';
 
 PillList.propTypes = {
 	data: PropTypes.any
 }
+
+export default PillList;

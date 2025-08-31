@@ -7,7 +7,17 @@ import Head from "next/head";
 import { clarity } from 'react-microsoft-clarity';
 
 function MyApp({ Component, pageProps }) {
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 5 * 60 * 1000, // 5 minutes
+        cacheTime: 10 * 60 * 1000, // 10 minutes
+        retry: 1,
+        refetchOnWindowFocus: false,
+        refetchOnReconnect: true,
+      },
+    },
+  });
 
   useEffect(() => {
     if (process.env.NODE_ENV != "development")
@@ -20,10 +30,12 @@ function MyApp({ Component, pageProps }) {
     <Fragment >
       <Head>
         <title>Argenpills Mobile</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Argenpills Mobile - Información sobre pastillas" />
       </Head>
       <QueryClientProvider client={queryClient} >
         <Component {...pageProps} />
-        <ReactQueryDevtools initialIsOpen={false} />
+        {process.env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} />}
       </QueryClientProvider >
     </Fragment >
   );

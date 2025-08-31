@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Container, Stack, Spinner } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import PillList from '../UI/PillsList';
+import LoadingSkeleton from '../UI/LoadingSkeleton';
 import LastUpdate from '../UI/LastUpdate';
 import Pagination from '../UI/Pagination';
 import pillStore from '../../context/PillStore';
@@ -25,15 +26,20 @@ const Main = ({ resultsPills }) => {
 		<Container className="p-3">
 			{
 				resultsPills.isError && (
-					<div>Error trayendo los datos: {resultsPills.error}</div>
+					<div className="alert alert-danger">
+						Error trayendo los datos: {resultsPills.error?.message || resultsPills.error}
+					</div>
 				)
 			}
 			{
 				(resultsPills.isLoading || resultsPills.isFetching) && (
-					<Stack direction="horizontal" gap={3}>
-						<div>Cargando...</div>
-						<div><Spinner animation="border" variant="primary" size="sm" /></div>
-					</Stack>
+					<>
+						<Stack direction="horizontal" gap={3} className="mb-3">
+							<div>Cargando...</div>
+							<div><Spinner animation="border" variant="primary" size="sm" /></div>
+						</Stack>
+						<LoadingSkeleton count={9} />
+					</>
 				)
 			}
 			{
