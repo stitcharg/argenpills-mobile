@@ -1,8 +1,8 @@
 import { Fragment, useEffect } from 'react'
 import '../styles/globals.css'
 import '../styles/pagination.css'
-import { QueryClientProvider, QueryClient } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools'
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Head from "next/head";
 import { clarity } from 'react-microsoft-clarity';
 

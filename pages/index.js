@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Main from '../components/Main/Main';
 import Footer from '../components/UI/Footer';
 import Header from '../components/Header/Header';
-import { useQuery } from 'react-query';
+import { useQuery, keepPreviousData } from '@tanstack/react-query';
 import fetchPills from '../components/API/fetchPills';
 import { useState } from 'react';
 import pillStore from '../context/PillStore';
@@ -37,40 +37,34 @@ function App() {
 		}
 	}
 
-	const queryResults = useQuery(
-		['pills', searchText, currentPage],
-		(queryKey) => fetchPills(queryKey, currentPage, searchText, lastEvaluatedKey),
-		{
-			staleTime: 60000,
-			refetchOnWindowFocus: false,
-			keepPreviousData: true,
-			onSuccess: (response) => {
-				const items = response.data.data;
-
-				if (items.length > 0) {
-					const lastEvaluate = response.data.LastEvaluatedKey;
-					const calculatedPages = getTotalPages(response.headers);
-					fnSetTotalPages(calculatedPages);
-					fnSetLastEvaluatedKey(lastEvaluate);
-
-					if (currentPage == 1) {
-						const firstItem = items[0];
-						if (firstItem) fnSetLastUpdate(firstItem.posted_date);
-					}
-				} else {
-					fnSetTotalPages(0);
-					fnSetLastEvaluatedKey("");
-				}
-			}
-		},
-	);
+	const queryResults = useQuery({
+		queryKey: ['pills', searchText, currentPage],
+		queryFn: () => fetchPills(['pills', searchText, currentPage], currentPage, searchText, lastEvaluatedKey),
+		staleTime: 60000,
+		refetchOnWindowFocus: false,
+		placeholderData: keepPreviousData,
+	});
 
 	useEffect(() => {
 		if (queryResults.data && !queryResults.isFetching) {
+			const items = queryResults.data.data.data;
 			const calculatedPages = getTotalPages(queryResults.data.headers);
 			fnSetTotalPages(calculatedPages);
+
+			if (items.length > 0) {
+				const lastEvaluate = queryResults.data.data.LastEvaluatedKey;
+				fnSetLastEvaluatedKey(lastEvaluate);
+
+				if (currentPage == 1) {
+					const firstItem = items[0];
+					if (firstItem) fnSetLastUpdate(firstItem.posted_date);
+				}
+			} else {
+				fnSetTotalPages(0);
+				fnSetLastEvaluatedKey("");
+			}
 		}
-	}, [queryResults.data, queryResults.isFetching, fnSetTotalPages, getTotalPages]);
+	}, [queryResults.data, queryResults.isFetching, fnSetTotalPages, getTotalPages, currentPage, fnSetLastEvaluatedKey, fnSetLastUpdate]);
 
 	return (
 		<div className="wrapper">
