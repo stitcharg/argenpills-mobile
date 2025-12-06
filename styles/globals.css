@@ -3,8 +3,20 @@
 }
 
 .wrapper {
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
+.wrapper main {
+  flex: 1 0 auto;
+}
+
+.wrapper footer {
+  flex-shrink: 0;
+}
+
+
 
 .pill {
   width: 18rem;
@@ -29,4 +41,57 @@ div.multiple-batches {
 .lastUpdate {
   font-style: italic;
   color: var(--bs-gray-600);
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 10px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.search-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loading-content .spinner-border {
+  width: 3rem;
+  height: 3rem;
+}
+
+.loading-text {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--bs-gray-700);
+  font-weight: 500;
 }
