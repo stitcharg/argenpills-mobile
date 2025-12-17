@@ -15,7 +15,7 @@
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "dayjs": "^1.11.13",
-    "next": "15.2.6",
+    "next": "15.4.10",
     "react": "19.0.3",
     "react-bootstrap": "^2.10.7",
     "react-dom": "19.0.3",
